@@ -27,6 +27,8 @@ router.post('/notes', (req, res) => {
       }
 });
 
-router.post('/')
+router.delete('/notes/:id', (req, res) => {
+  deleteNote(req.params.id, notes);
+});
 
 module.exports = router;
