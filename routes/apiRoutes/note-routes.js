@@ -29,6 +29,9 @@ router.post('/notes', (req, res) => {
 
 router.delete('/notes/:id', (req, res) => {
   deleteNote(req.params.id, notesArray);
+  res.status(200).json({
+    message: "Value deleted"
+  });
 });
 
 module.exports = router;
