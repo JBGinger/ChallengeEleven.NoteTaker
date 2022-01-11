@@ -3,6 +3,9 @@
 ## Description
 The purpose of this project was to create an application that allows users to organize their thoughts and keep track of tasks by writing and saving notes. The application also includes a delete function in case the user wants to delete notes that are no longer needed.
 
+## Screenshot
+![Alt text](http://public/assets/images/screenshot.jpg)
+
 ## Table Of Contents
 * [Description](#description)
 * [Installation](#installation)
