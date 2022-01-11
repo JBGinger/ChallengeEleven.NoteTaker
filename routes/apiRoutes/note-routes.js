@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const { findById, createNote, deleteNote, validateNote } = require('../../lib/notes');
-const { notes } = require('../../db/db.json');
+const { notesArray } = require('../../db/db.json');
 
 router.get('/notes', (req, res) => {
-    let results = notes;
+    let results = notesArray;
     res.json(results);
 });
 
 router.get('/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
+    const result = findById(req.params.id, notesArray);
     if (result) {
         res.json(result);
       } else {
@@ -17,18 +17,18 @@ router.get('/notes/:id', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-    req.body.id = notes.length.toString();
+    req.body.id = notesArray.length.toString();
 
     if (!validateNote(req.body)) {
         res.status(400).send('This note is not properly formatted.');
     } else {
-        const note = createNote(req.body, notes);
+        const note = createNote(req.body, notesArray);
         res.json(note);
       }
 });
 
 router.delete('/notes/:id', (req, res) => {
-  deleteNote(req.params.id, notes);
+  deleteNote(req.params.id, notesArray);
 });
 
 module.exports = router;
